@@ -7,7 +7,7 @@ exports[`test renders default form correctly 1`] = `
       className="input-field col s12">
       <div>
         <input
-          className=" "
+          className="validate  "
           name="gene"
           onBlur={[Function]}
           onChange={[Function]}

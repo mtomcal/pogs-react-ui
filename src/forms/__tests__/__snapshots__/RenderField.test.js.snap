@@ -1,7 +1,7 @@
 exports[`renderField renders default RenderField correctly 1`] = `
 <div>
   <input
-    className=" "
+    className="validate  "
     name="test"
     type={undefined} />
   <label

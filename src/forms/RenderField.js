@@ -5,7 +5,7 @@ export default ({ input, label, type, meta: { touched, error, warning } }) => {
   const invalidClass = touched && error && input.value.length > 0 ? 'invalid' : '';
   return (
     <div>
-      <input {...input} className={`${validClass} ${invalidClass}`} type={type}/>
+      <input {...input} className={`validate ${validClass} ${invalidClass}`} type={type}/>
       <label data-error={error} htmlFor={input.name}>{label}</label>
     </div>
   );
