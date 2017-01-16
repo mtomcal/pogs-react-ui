@@ -9,8 +9,8 @@ class Card extends Component {
     let styles = {};
 
     return (
-        <div class="card">
-            <div class="card-content">
+        <div className="card">
+            <div className="card-content">
                 {this.props.children}
             </div>
         </div>
@@ -19,7 +19,7 @@ class Card extends Component {
 }
 
 Card.propTypes = {
-    children: PropTypes.element
-}
+    children: PropTypes.arrayOf(PropTypes.element)
+};
 
 export default Card;

@@ -13,7 +13,11 @@ class Layout extends Component {
       <div>
           <Navbar />
           <div>
-              {this.props.children}
+              <div className="row">
+                  <div className="col s10 push-s1 pull-s1">
+                      {this.props.children}
+                  </div>
+              </div>
           </div>
       </div>
     );
@@ -22,6 +26,6 @@ class Layout extends Component {
 
 Layout.propTypes = {
     children: PropTypes.element
-}
+};
 
 export default Layout;

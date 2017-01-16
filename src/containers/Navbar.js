@@ -11,13 +11,12 @@ class Navbar extends Component {
     return (
       <div>
           <nav>
-              <div className="nav-wrapper">
-                  <a href="#" className="brand-logo">POGs DB</a>
-                  <ul id="nav-mobile" className="right hide-on-med-and-down">
-                      <li><a href="sass.html">Sass</a></li>
-                      <li><a href="badges.html">Components</a></li>
-                      <li><a href="collapsible.html">JavaScript</a></li>
-                  </ul>
+              <div className="row">
+                  <div className="nav-wrapper col s10 push-s1 pull-s1">
+                      <a href="#" className="brand-logo">POGs DB</a>
+                      <ul id="nav-mobile" className="right hide-on-med-and-down">
+                      </ul>
+                  </div>
               </div>
           </nav>
       </div>
@@ -26,6 +25,6 @@ class Navbar extends Component {
 }
 
 Navbar.propTypes = {
-}
+};
 
 export default Navbar;

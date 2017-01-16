@@ -1,0 +1,14 @@
+exports[`test renders with two elements 1`] = `
+<div
+  className="card">
+  <div
+    className="card-content">
+    <h1>
+      Stuff
+    </h1>
+    <p>
+      More stuff
+    </p>
+  </div>
+</div>
+`;

@@ -1,0 +1,31 @@
+exports[`test renders default form correctly 1`] = `
+<div>
+  <form>
+    <div
+      className="row">
+      <div
+        className="input-field col s12">
+        <div>
+          <div>
+            <input
+              className="validate "
+              name="gene"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onDragStart={[Function]}
+              onDrop={[Function]}
+              onFocus={[Function]}
+              type="text"
+              value="" />
+            <label
+              data-error={undefined}
+              htmlFor="gene">
+              Search By Gene ID e.g. GRMZM2G055768
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

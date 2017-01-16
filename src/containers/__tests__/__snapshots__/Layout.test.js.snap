@@ -1,0 +1,33 @@
+exports[`test renders with one element 1`] = `
+<div>
+  <div>
+    <nav>
+      <div
+        className="row">
+        <div
+          className="nav-wrapper col s10 push-s1 pull-s1">
+          <a
+            className="brand-logo"
+            href="#">
+            POGs DB
+          </a>
+          <ul
+            className="right hide-on-med-and-down"
+            id="nav-mobile" />
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div>
+    <div
+      className="row">
+      <div
+        className="col s10 push-s1 pull-s1">
+        <h1>
+          Stuff
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+`;
