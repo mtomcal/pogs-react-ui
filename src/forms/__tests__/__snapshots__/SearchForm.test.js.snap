@@ -1,31 +1,37 @@
 exports[`test renders default form correctly 1`] = `
-<div>
-  <form>
+<form
+  onSubmit={[Function]}>
+  <div
+    className="row">
     <div
-      className="row">
-      <div
-        className="input-field col s12">
-        <div>
-          <div>
-            <input
-              className="validate "
-              name="gene"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onDragStart={[Function]}
-              onDrop={[Function]}
-              onFocus={[Function]}
-              type="text"
-              value="" />
-            <label
-              data-error={undefined}
-              htmlFor="gene">
-              Search By Gene ID e.g. GRMZM2G055768
-            </label>
-          </div>
-        </div>
+      className="input-field col s12">
+      <div>
+        <input
+          className=" "
+          name="gene"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onDragStart={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          type="text"
+          value="" />
+        <label
+          data-error={undefined}
+          htmlFor="gene">
+          Search By Gene ID e.g. GRMZM2G055768
+        </label>
       </div>
     </div>
-  </form>
-</div>
+  </div>
+  <div
+    className="row">
+    <button
+      className="btn btn-large"
+      disabled={false}
+      type="submit">
+      Submit
+    </button>
+  </div>
+</form>
 `;

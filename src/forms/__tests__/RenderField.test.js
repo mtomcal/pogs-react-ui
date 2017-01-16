@@ -13,9 +13,9 @@ describe('renderField', () => {
   });
   it('renders error message if error is present', () => {
     const component = shallow(
-      <RenderField label="Test" input={{name: 'test'}} meta={{touched: true, error: 'should be something else'}}/>
+      <RenderField label="Test" input={{name: 'test', value: 'afdadsfasdf'}} meta={{touched: true, error: 'should be something else'}}/>
     );
-    const hasErrorClass = component.find('input').hasClass('error');
+    const hasErrorClass = component.find('input').hasClass('invalid');
     const dataError = component.find('label').prop('data-error');
     expect(hasErrorClass).toBeTruthy();
     expect(dataError).toEqual('should be something else');

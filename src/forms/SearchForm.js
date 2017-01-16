@@ -2,31 +2,32 @@ import React, {PropTypes, Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
 import RenderField from './RenderField';
 
-class SearchForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    let styles = {};
+function validate(values) {
+  return {
+  };
+}
 
-    return (
-      <div>
-        <form>
-          <div className="row">
-            <div className="input-field col s12">
-              <Field label="Search By Gene ID e.g. GRMZM2G055768" name="gene" type="text" component={RenderField} />
-            </div>
+function SearchForm({submitting, handleSubmit}) {
+  return (
+      <form onSubmit={handleSubmit}>
+        <div className="row">
+          <div className="input-field col s12">
+            <Field label="Search By Gene ID e.g. GRMZM2G055768" name="gene" type="text" component={RenderField} />
           </div>
-        </form>
-      </div>
-    );
-  }
+        </div>
+        <div className="row">
+          <button className="btn btn-large" type="submit" disabled={submitting}>Submit</button>
+        </div>
+      </form>
+  );
 }
 
 SearchForm.propTypes = {
+  handleSubmit: PropTypes.func,
+  reset: PropTypes.func
 };
 
 export default reduxForm({
-  form: 'search'
+  form: 'search',
+  validate
 })(SearchForm);

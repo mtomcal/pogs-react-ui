@@ -19,7 +19,6 @@ class Card extends Component {
 }
 
 Card.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.element)
 };
 
 export default Card;

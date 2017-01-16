@@ -1,6 +1,10 @@
 import React from 'react';
+jest.mock('react-router/Link', () => {
+  return function (props) {
+    return (<a className={props.className} href="#">{props.children}</a>);
+  }
+});
 import Layout from '../Layout';
-import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 
 it('renders with one element', () => {

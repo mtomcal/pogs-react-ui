@@ -1,13 +1,12 @@
 import React from 'react';
 
-export default ({ input, label, placeholder, type, meta: { touched, error, warning } }) => {
-  const errorClass = touched && error ? "error" : "";
+export default ({ input, label, type, meta: { touched, error, warning } }) => {
+  const validClass = touched && !error ? 'valid' : '';
+  const invalidClass = touched && error && input.value.length > 0 ? 'invalid' : '';
   return (
     <div>
-      <div>
-        <input {...input} className={`validate ${errorClass}`} type={type}/>
-        <label data-error={error} htmlFor={input.name}>{label}</label>
-      </div>
+      <input {...input} className={`${validClass} ${invalidClass}`} type={type}/>
+      <label data-error={error} htmlFor={input.name}>{label}</label>
     </div>
   );
 }

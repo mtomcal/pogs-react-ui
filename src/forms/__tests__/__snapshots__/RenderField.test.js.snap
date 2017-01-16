@@ -1,15 +1,13 @@
 exports[`renderField renders default RenderField correctly 1`] = `
 <div>
-  <div>
-    <input
-      className="validate "
-      name="test"
-      type={undefined} />
-    <label
-      data-error={undefined}
-      htmlFor="test">
-      Test
-    </label>
-  </div>
+  <input
+    className=" "
+    name="test"
+    type={undefined} />
+  <label
+    data-error={undefined}
+    htmlFor="test">
+    Test
+  </label>
 </div>
 `;
