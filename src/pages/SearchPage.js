@@ -5,12 +5,25 @@ import React, {
 import Card from '../components/Card';
 import SearchForm from '../forms/SearchForm';
 import Layout from '../containers/Layout';
+import {Search} from '../actions';
+import {connect} from 'react-redux';
+import {Redirect} from 'react-router';
 
 class SearchPage extends Component {
+  constructor(props) {
+    super(props);
+    this.onSearch = this.onSearch.bind(this);
+    this.state = {shouldRedirect: false};
+  }
   onSearch(values) {
     console.log(values);
+    this.setState({shouldRedirect: true});
+    this.props.searchAction(values);
   }
   render() {
+    if (this.state.shouldRedirect === true) {
+      return <Redirect to="/results" />;
+    }
     return (
         <Layout>
           <Card>
@@ -28,7 +41,16 @@ class SearchPage extends Component {
   }
 }
 
-SearchPage.propTypes = {};
-SearchPage.defaultProps = {};
+SearchPage.propTypes = {
+  searchAction: PropTypes.func.isRequired
+};
 
-export default SearchPage;
+function mapDispatchToProps(dispatch) {
+  return {
+    searchAction(values) {
+      dispatch(Search.searchQuery(values.gene));
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SearchPage);

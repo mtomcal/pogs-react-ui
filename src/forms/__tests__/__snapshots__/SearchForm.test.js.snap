@@ -17,7 +17,7 @@ exports[`test renders default form correctly 1`] = `
           type="text"
           value="" />
         <label
-          data-error={undefined}
+          data-error="Needs to be a string."
           htmlFor="gene">
           Search By Gene ID e.g. GRMZM2G055768
         </label>

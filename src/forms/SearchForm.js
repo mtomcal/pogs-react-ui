@@ -1,10 +1,14 @@
 import React, {PropTypes, Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
 import RenderField from './RenderField';
+import _ from 'lodash';
 
 function validate(values) {
-  return {
-  };
+  let errors = {};
+  if (!_.isString(values.gene)) {
+    errors.gene = 'Needs to be a string.'
+  }
+  return errors;
 }
 
 function SearchForm({submitting, handleSubmit}) {

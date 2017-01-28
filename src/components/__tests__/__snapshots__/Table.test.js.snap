@@ -1,0 +1,31 @@
+exports[`test renders with two rows and a header 1`] = `
+<table
+  className="striped">
+  <tr>
+    <th>
+      Id
+    </th>
+    <th>
+      Description
+    </th>
+  </tr>
+  <tbody>
+    <tr>
+      <td>
+        1234
+      </td>
+      <td>
+        This is cool
+      </td>
+    </tr>
+    <tr>
+      <td>
+        5678
+      </td>
+      <td>
+        This is cooler
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
