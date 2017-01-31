@@ -1,4 +1,4 @@
-exports[`test renders default form correctly 1`] = `
+exports[`SearchForm renders default form correctly 1`] = `
 <form
   onSubmit={[Function]}>
   <div
@@ -26,12 +26,61 @@ exports[`test renders default form correctly 1`] = `
   </div>
   <div
     className="row">
-    <button
-      className="btn btn-large"
-      disabled={false}
-      type="submit">
-      Submit
-    </button>
+    <div
+      className="input-field col s12">
+      <div>
+        <input
+          className="validate  "
+          name="keyword"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onDragStart={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          type="text"
+          value="" />
+        <label
+          data-error={undefined}
+          htmlFor="keyword">
+          Search By Keyword e.g. \'ppr\' or by InterproID e.g. IPR001117
+        </label>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row">
+    <div
+      className="input-field col s12">
+      <div>
+        <input
+          className="validate  "
+          name="pog"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onDragStart={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          type="text"
+          value="" />
+        <label
+          data-error={undefined}
+          htmlFor="pog">
+          Search By POG ID i.e. 5562
+        </label>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row">
+    <div
+      className="col s12">
+      <button
+        className="btn btn-large"
+        disabled={false}
+        type="submit">
+        Submit
+      </button>
+    </div>
   </div>
 </form>
 `;

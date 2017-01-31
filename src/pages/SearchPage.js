@@ -16,7 +16,6 @@ class SearchPage extends Component {
     this.state = {shouldRedirect: false};
   }
   onSearch(values) {
-    console.log(values);
     this.setState({shouldRedirect: true});
     this.props.searchAction(values);
   }
@@ -48,7 +47,7 @@ SearchPage.propTypes = {
 function mapDispatchToProps(dispatch) {
   return {
     searchAction(values) {
-      dispatch(Search.searchQuery(values.gene));
+      dispatch(Search.searchQuery(values));
     }
   }
 }

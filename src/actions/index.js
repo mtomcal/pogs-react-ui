@@ -23,19 +23,19 @@ export const Search = {
       payload: error
     };
   },
-  searchQuery(term) {
+  searchQuery({keyword, gene, pog}) {
     return function searchQueryThunk(dispatch) {
       dispatch(Search.searchInProgress());
       // Ajax Query here
       superagent.get(SEARCH_ENDPOINT)
         .query({
           alt: 'json',
-          domain: term,
-          gene: '',
+          domain: keyword || '',
+          gene: gene || '',
           pogMethod: 'groups',
           nucop: '',
           page: 1,
-          pog: '',
+          pog: pog || '',
           ppdb: '',
           targetop: '',
           tid: '',

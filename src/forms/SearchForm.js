@@ -5,9 +5,6 @@ import _ from 'lodash';
 
 function validate(values) {
   let errors = {};
-  if (!_.isString(values.gene)) {
-    errors.gene = 'Needs to be a string.'
-  }
   return errors;
 }
 
@@ -20,7 +17,19 @@ function SearchForm({submitting, handleSubmit}) {
           </div>
         </div>
         <div className="row">
-          <button className="btn btn-large" type="submit" disabled={submitting}>Submit</button>
+          <div className="input-field col s12">
+            <Field label="Search By Keyword e.g. 'ppr' or by InterproID e.g. IPR001117" name="keyword" type="text" component={RenderField} />
+          </div>
+        </div>
+        <div className="row">
+          <div className="input-field col s12">
+            <Field label="Search By POG ID i.e. 5562" name="pog" type="text" component={RenderField} />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col s12">
+            <button className="btn btn-large" type="submit" disabled={submitting}>Submit</button>
+          </div>
         </div>
       </form>
   );
