@@ -1,10 +1,25 @@
 import React, {PropTypes, Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
 import RenderField from './RenderField';
+import validator from 'validator';
 import _ from 'lodash';
 
 function validate(values) {
   let errors = {};
+  const keysOfInterest = _.keys(values)
+      .filter((key) => !_.isEmpty(values[key]));
+
+  keysOfInterest.forEach((key) => {
+      if (key === 'gene' && !validator.isAlphanumeric(values[key])) {
+          errors.gene = 'Gene Id should be alphanumeric';
+      }
+      if (key === 'keyword' && !validator.isAlphanumeric(values[key])) {
+          errors.keyword = 'Keyword should be alphanumeric';
+      }
+      if (key === 'pog' && !validator.isInt(_.get(values, 'pog', ''))) {
+          errors.pog = 'POG Id should be an integer';
+      }
+  });
   return errors;
 }
 
