@@ -27,13 +27,17 @@ class SearchPage extends Component {
         <Layout>
           <Card>
             <div className="row">
-              <div className="col s12">
+              <div className="col-sm-12">
                 <h3>Search for POGs</h3>
                 <p>Search for Putative Orthologous Groups (POGs) containing genes in Arabidopsis thaliana,
                   Zea mays, Oryza sativa, and/or Populus trichocarpa that meet the following criteria:</p>
               </div>
             </div>
-            <SearchForm onSubmit={this.onSearch}/>
+            <div className="row">
+              <div className="col-sm-12">
+                <SearchForm onSubmit={this.onSearch}/>
+              </div>
+            </div>
           </Card>
         </Layout>
     );

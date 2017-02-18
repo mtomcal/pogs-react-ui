@@ -11,14 +11,14 @@ class Navbar extends Component {
 
     return (
       <div>
-          <nav>
-              <div className="row">
-                  <div className="nav-wrapper col s10 push-s1 pull-s1">
-                      <Link to="/" className="brand-logo">POGs DB</Link>
-                      <ul id="nav-mobile" className="right hide-on-med-and-down">
-                      </ul>
-                  </div>
+        <nav className="navbar navbar-default">
+          <div className="container-fluid">
+            <div className="row col-sm-12">
+              <div className="navbar-header">
+                <Link to="/" className="navbar-brand">POGs DB</Link>
               </div>
+            </div>
+          </div>
           </nav>
       </div>
     );

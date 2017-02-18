@@ -27,23 +27,23 @@ function SearchForm({submitting, handleSubmit}) {
   return (
       <form onSubmit={handleSubmit}>
         <div className="row">
-          <div className="input-field col s12">
+          <div className="col-sm-12">
             <Field label="Search By Gene ID e.g. GRMZM2G055768" name="gene" type="text" component={RenderField} />
           </div>
         </div>
         <div className="row">
-          <div className="input-field col s12">
+          <div className="col-sm-12">
             <Field label="Search By Keyword e.g. 'ppr' or by InterproID e.g. IPR001117" name="keyword" type="text" component={RenderField} />
           </div>
         </div>
         <div className="row">
-          <div className="input-field col s12">
+          <div className="col-sm-12">
             <Field label="Search By POG ID i.e. 5562" name="pog" type="text" component={RenderField} />
           </div>
         </div>
         <div className="row">
-          <div className="col s12">
-            <button className="btn btn-large" type="submit" disabled={submitting}>Submit</button>
+          <div className="col-sm-12">
+            <button className="btn btn-primary btn-raised" type="submit" disabled={submitting}>Submit</button>
           </div>
         </div>
       </form>

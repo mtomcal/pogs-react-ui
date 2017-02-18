@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'materialize-css/dist/css/materialize.min.css';
-import 'materialize-css/dist/js/materialize';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-material-design/dist/css/bootstrap-material-design.css';
+import 'bootstrap-material-design/dist/css/ripples.css';
 import './index.css';
 import {Provider} from 'react-redux';
 import state from './State';

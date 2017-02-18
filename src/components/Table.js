@@ -39,7 +39,7 @@ class Table extends Component {
     const {data, headers} = this.props;
 
     return (
-      <table className="striped">
+      <table className="table table-striped">
         <TableHeader headers={headers} />
         <tbody>
         {data.map(function tableRowMap(row, index) {
