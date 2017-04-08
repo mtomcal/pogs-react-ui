@@ -1,4 +1,5 @@
-import React, {PropTypes, Component} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import Navbar from './Navbar';
 
 class Layout extends Component {
@@ -7,8 +8,6 @@ class Layout extends Component {
     this.state = {};
   }
   render() {
-    let styles = {};
-
     return (
       <div>
           <Navbar />

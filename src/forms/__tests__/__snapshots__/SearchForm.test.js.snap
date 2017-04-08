@@ -4,10 +4,18 @@ exports[`SearchForm renders default form correctly 1`] = `
   <div
     className="row">
     <div
-      className="input-field col s12">
-      <div>
+      className="col-sm-12">
+      <div
+        className="form-group"
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <label
+          className="control-label"
+          htmlFor="gene">
+          Search By Gene ID e.g. GRMZM2G055768
+        </label>
         <input
-          className="validate  "
+          className="form-control"
           name="gene"
           onBlur={[Function]}
           onChange={[Function]}
@@ -16,21 +24,25 @@ exports[`SearchForm renders default form correctly 1`] = `
           onFocus={[Function]}
           type="text"
           value="" />
-        <label
-          data-error="Needs to be a string."
-          htmlFor="gene">
-          Search By Gene ID e.g. GRMZM2G055768
-        </label>
+        <span />
       </div>
     </div>
   </div>
   <div
     className="row">
     <div
-      className="input-field col s12">
-      <div>
+      className="col-sm-12">
+      <div
+        className="form-group"
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <label
+          className="control-label"
+          htmlFor="keyword">
+          Search By Keyword e.g. \'ppr\' or by InterproID e.g. IPR001117
+        </label>
         <input
-          className="validate  "
+          className="form-control"
           name="keyword"
           onBlur={[Function]}
           onChange={[Function]}
@@ -39,21 +51,25 @@ exports[`SearchForm renders default form correctly 1`] = `
           onFocus={[Function]}
           type="text"
           value="" />
-        <label
-          data-error={undefined}
-          htmlFor="keyword">
-          Search By Keyword e.g. \'ppr\' or by InterproID e.g. IPR001117
-        </label>
+        <span />
       </div>
     </div>
   </div>
   <div
     className="row">
     <div
-      className="input-field col s12">
-      <div>
+      className="col-sm-12">
+      <div
+        className="form-group"
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <label
+          className="control-label"
+          htmlFor="pog">
+          Search By POG ID i.e. 5562
+        </label>
         <input
-          className="validate  "
+          className="form-control"
           name="pog"
           onBlur={[Function]}
           onChange={[Function]}
@@ -62,20 +78,16 @@ exports[`SearchForm renders default form correctly 1`] = `
           onFocus={[Function]}
           type="text"
           value="" />
-        <label
-          data-error={undefined}
-          htmlFor="pog">
-          Search By POG ID i.e. 5562
-        </label>
+        <span />
       </div>
     </div>
   </div>
   <div
     className="row">
     <div
-      className="col s12">
+      className="col-sm-12">
       <button
-        className="btn btn-large"
+        className="btn btn-primary btn-raised"
         disabled={false}
         type="submit">
         Submit

@@ -1,28 +1,24 @@
 exports[`test renders with one element 1`] = `
 <div>
   <div>
-    <nav>
+    <nav
+      className="navbar navbar-default">
       <div
-        className="row">
+        className="container-fluid">
         <div
-          className="nav-wrapper col s10 push-s1 pull-s1">
-          <a
-            className="brand-logo"
-            href="#">
-            POGs DB
-          </a>
-          <ul
-            className="right hide-on-med-and-down"
-            id="nav-mobile" />
+          className="row col-sm-12">
+          <div
+            className="navbar-header" />
         </div>
       </div>
     </nav>
   </div>
-  <div>
+  <div
+    className="container">
     <div
       className="row">
       <div
-        className="col s10 push-s1 pull-s1">
+        className="col-sm-10 col-sm-pull-1 col-sm-push-1">
         <h1>
           Stuff
         </h1>

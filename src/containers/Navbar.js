@@ -1,5 +1,6 @@
-import React, {PropTypes, Component} from 'react';
-import {Link} from 'react-router';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+// import PropTypes from 'prop-types';
 
 class Navbar extends Component {
   constructor(props) {
@@ -7,8 +8,6 @@ class Navbar extends Component {
     this.state = {};
   }
   render() {
-    let styles = {};
-
     return (
       <div>
         <nav className="navbar navbar-default">

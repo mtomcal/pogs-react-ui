@@ -1,7 +1,5 @@
-import React, {
-  Component,
-  PropTypes,
-} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 import _ from 'lodash';
 
@@ -32,9 +30,6 @@ function TableHeader({headers}) {
 TableHeader.propTypes = {};
 
 class Table extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const {data, headers} = this.props;
 

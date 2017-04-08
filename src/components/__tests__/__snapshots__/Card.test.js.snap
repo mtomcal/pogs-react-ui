@@ -1,14 +1,20 @@
 exports[`test renders with two elements 1`] = `
 <div
-  className="card">
+  className="panel panel-default">
   <div
-    className="card-content">
-    <h1>
-      Stuff
-    </h1>
-    <p>
-      More stuff
-    </p>
+    className="panel-body">
+    <div
+      className="col-sm-12">
+      <div
+        className="col-sm-12">
+        <h1>
+          Stuff
+        </h1>
+        <p>
+          More stuff
+        </p>
+      </div>
+    </div>
   </div>
 </div>
 `;

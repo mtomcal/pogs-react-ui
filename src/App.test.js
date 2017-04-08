@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import {Provider} from 'react-redux';
 import state from './State';
-import renderer from 'react-test-renderer';
 
-it('renders without crashing', () => {
+test('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <Provider store={state}>

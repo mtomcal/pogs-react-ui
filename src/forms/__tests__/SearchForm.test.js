@@ -7,7 +7,7 @@ import {mount} from 'enzyme';
 import state from '../../State';
 
 describe('SearchForm', () => {
-  it('renders default form correctly', () => {
+  test('renders default form correctly', () => {
     const component = renderer.create(
       <Provider store={state}>
         <SearchForm />
@@ -16,7 +16,7 @@ describe('SearchForm', () => {
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
-  it('renders gene field', () => {
+  test('renders gene field', () => {
     const component = mount(
       <Provider store={state}>
         <SearchForm />
@@ -24,7 +24,7 @@ describe('SearchForm', () => {
     );
     expect(component.find('input[name="gene"]').exists()).toEqual(true);
   });
-  it('renders keyword field', () => {
+  test('renders keyword field', () => {
     const component = mount(
       <Provider store={state}>
         <SearchForm />
@@ -32,7 +32,7 @@ describe('SearchForm', () => {
     );
     expect(component.find('input[name="keyword"]').exists()).toEqual(true);
   });
-  it('renders pog field', () => {
+  test('renders pog field', () => {
     const component = mount(
       <Provider store={state}>
         <SearchForm />

@@ -1,4 +1,5 @@
-import React, {PropTypes, Component} from "react";
+import React, {Component} from "react";
+// import PropTypes from 'prop-types';
 
 class Card extends Component {
   constructor(props) {
@@ -7,8 +8,6 @@ class Card extends Component {
   }
 
   render() {
-    let styles = {};
-
     return (
       <div className="panel panel-default">
         <div className="panel-body">

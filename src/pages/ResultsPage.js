@@ -1,7 +1,7 @@
 import React, {
   Component,
-  PropTypes,
 } from 'react';
+// import PropTypes from 'prop-types';
 import Card from '../components/Card';
 import Table from '../components/Table';
 import Loader from '../components/Loader';

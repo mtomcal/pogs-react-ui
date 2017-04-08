@@ -1,6 +1,5 @@
 import React from 'react';
 import Table from '../Table';
-import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 
 function getFakeData() {
@@ -10,7 +9,7 @@ function getFakeData() {
   ];
 }
 
-it('renders with two rows and a header', () => {
+test('renders with two rows and a header', () => {
   const component = renderer.create(
     <Table headers={['id', 'description']} data={getFakeData()} />
   );

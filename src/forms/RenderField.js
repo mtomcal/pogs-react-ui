@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 
 export const states = {
   PRISTINE: 'PRISTINE',
@@ -16,18 +16,22 @@ function inferState(touched, error) {
   return states.PRISTINE;
 }
 
-export default React.createClass({
-  getInitialState() {
-    return {
+export default class RenderField extends Component {
+  constructor(props) {
+    super(props);
+    this.props = props;
+    this.state = {
       classNames: ''
     };
-  },
+    this.onDefocus = this.onDefocus.bind(this);
+    this.onFocus = this.onFocus.bind(this);
+  }
   onFocus(event) {
     this.setState({classNames: ` is-focused`});
-  },
+  }
   onDefocus(event) {
     this.setState({classNames: ``});
-  },
+  }
   render() {
     const {input, label, type, meta: {touched, error}} = this.props;
     let errorMessageJsx = <span></span>;
@@ -50,5 +54,5 @@ export default React.createClass({
         {errorMessageJsx}
       </div>
     );
-  },
-})
+  }
+}

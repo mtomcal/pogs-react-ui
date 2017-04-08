@@ -2,15 +2,16 @@ import React, {Component} from 'react';
 import SearchPage from './pages/SearchPage';
 import ResultsPage from './pages/ResultsPage';
 
-import { BrowserRouter, Match, Miss, Link } from 'react-router'
+import { Route } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
         <div>
-          <Match exactly pattern="/" component={SearchPage} />
-          <Match exactly pattern="/results" component={ResultsPage} />
+          <Route exact path="/" component={SearchPage} />
+          <Route path="/results" component={ResultsPage} />
         </div>
       </BrowserRouter>
     );

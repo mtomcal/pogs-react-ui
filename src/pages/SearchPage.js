@@ -1,7 +1,7 @@
 import React, {
-  Component,
-  PropTypes,
+  Component
 } from 'react';
+import PropTypes from 'prop-types';
 import Card from '../components/Card';
 import SearchForm from '../forms/SearchForm';
 import Layout from '../containers/Layout';

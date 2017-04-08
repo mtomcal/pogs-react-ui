@@ -1,13 +1,10 @@
 import React from 'react';
-jest.mock('react-router/Link', () => {
-  return function (props) {
-    return (<a className={props.className} href="#">{props.children}</a>);
-  }
-});
+jest.mock('react-router-dom');
+jest.mock('react-router');
 import Layout from '../Layout';
 import renderer from 'react-test-renderer';
 
-it('renders with one element', () => {
+test('renders with one element', () => {
   const component = renderer.create(
     <Layout>
       <h1>Stuff</h1>

@@ -1,13 +1,17 @@
 exports[`renderField renders default RenderField correctly 1`] = `
-<div>
-  <input
-    className="validate  "
-    name="test"
-    type={undefined} />
+<div
+  className="form-group"
+  onBlur={[Function]}
+  onFocus={[Function]}>
   <label
-    data-error={undefined}
+    className="control-label"
     htmlFor="test">
     Test
   </label>
+  <input
+    className="form-control"
+    name="test"
+    type={undefined} />
+  <span />
 </div>
 `;

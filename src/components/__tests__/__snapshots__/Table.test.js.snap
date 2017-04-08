@@ -1,14 +1,16 @@
 exports[`test renders with two rows and a header 1`] = `
 <table
-  className="striped">
-  <tr>
-    <th>
-      Id
-    </th>
-    <th>
-      Description
-    </th>
-  </tr>
+  className="table table-striped">
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td>
