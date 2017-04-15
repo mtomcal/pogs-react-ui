@@ -1,27 +1,26 @@
 import React, {
   Component
 } from 'react';
-import PropTypes from 'prop-types';
 import Card from '../components/Card';
 import SearchForm from '../forms/SearchForm';
 import Layout from '../containers/Layout';
-import {Search} from '../actions';
-import {connect} from 'react-redux';
 import {Redirect} from 'react-router';
+import qs from 'qs';
 
 class SearchPage extends Component {
   constructor(props) {
     super(props);
     this.onSearch = this.onSearch.bind(this);
     this.state = {shouldRedirect: false};
+    this.searchValues = {};
   }
   onSearch(values) {
+    this.searchValues = qs.stringify(values);
     this.setState({shouldRedirect: true});
-    this.props.searchAction(values);
   }
   render() {
     if (this.state.shouldRedirect === true) {
-      return <Redirect to="/results" />;
+      return <Redirect to={{pathname: "/results", search: `${this.searchValues}`}}/>;
     }
     return (
         <Layout>
@@ -45,15 +44,6 @@ class SearchPage extends Component {
 }
 
 SearchPage.propTypes = {
-  searchAction: PropTypes.func.isRequired
 };
 
-function mapDispatchToProps(dispatch) {
-  return {
-    searchAction(values) {
-      dispatch(Search.searchQuery(values));
-    }
-  }
-}
-
-export default connect(null, mapDispatchToProps)(SearchPage);
+export default SearchPage;

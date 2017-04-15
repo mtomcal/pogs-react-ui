@@ -7,7 +7,8 @@ function TableRow({headers, fields}) {
   return (
     <tr>
       {headers.map(function toField(header, index) {
-        return <td key={`field-${index}`}>{fields[header]}</td>
+        const value = fields[header];
+        return <td key={`field-${index}`}>{value}</td>
       })}
     </tr>
   );

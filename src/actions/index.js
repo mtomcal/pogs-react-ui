@@ -1,5 +1,6 @@
 import superagent from 'superagent';
 import jsonp from 'superagent-jsonp';
+import {static as Immutable} from 'seamless-immutable';
 
 const BASE_URL = `http://cas-pogs.uoregon.edu/dev/api`;
 
@@ -14,7 +15,7 @@ export const Search = {
   searchDone(results) {
     return {
       type: 'SEARCH_DONE',
-      payload: results
+      payload: Immutable.from(results)
     };
   },
   searchFail(error) {

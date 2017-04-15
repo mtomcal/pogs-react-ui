@@ -8,16 +8,23 @@ import Loader from '../components/Loader';
 import Layout from '../containers/Layout';
 import {connect} from 'react-redux';
 import _ from 'lodash';
+import qs from 'qs';
+import {static as Immutable} from 'seamless-immutable';
+import {Search} from '../actions';
 
 export function trimResults(_data) {
   const data = _.cloneDeep(_data);
   return data.map(function (row) {
-    row.description = _.truncate(row.description, {length: 140});
-    return row;
+    return Immutable.setIn(row, ['description'], _.truncate(row.description, {length: 140}));
   });
 }
 
 class ResultsPage extends Component {
+  constructor(props) {
+    super(props);
+    const values = qs.parse(props.location.search.replace('?', ''));
+    props.searchAction(values);
+  }
   render() {
     const {data, count, isLoading} = this.props;
 
@@ -47,9 +54,8 @@ ResultsPage.propTypes = {};
 function mapStateToProps(state) {
   let data;
   if (state.Search.results) {
-    data = state.Search.results.map(function (row) {
-      row.id = <h4>{row.id}</h4>;
-      return row;
+    data = state.Search.results.map(function (row, index) {
+      return Immutable.setIn(row, ['id'], <h4>{row.id}</h4>);
     });
   }
   return {
@@ -59,5 +65,13 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(ResultsPage);
+function mapDispatchToProps(dispatch) {
+  return {
+    searchAction(values) {
+      dispatch(Search.searchQuery(values));
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ResultsPage);
 

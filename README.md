@@ -8,5 +8,6 @@ An OSS initiative to rewrite an Angular 1.x interface for [POGs](http://pogs.uor
 * Redux Form
 * React Router
 * Lodash
+* Seamless Immutable
 
 Please see [Create React App](https://github.com/facebookincubator/create-react-app) project to get more information about the tooling.
