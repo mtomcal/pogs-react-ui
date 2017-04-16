@@ -7,14 +7,14 @@ export const searchStatus = {
   FAIL: 'FAIL'
 };
 
-export default function Search(state = {status: searchStatus.DONE}, action) {
+export default function Search(state = Immutable.from({status: searchStatus.DONE}), action) {
   switch (action.type) {
     case 'SEARCH_IN_PROGRESS':
-      return Object.assign({}, state, {
+      return Immutable.merge(state, {
         status: searchStatus.IN_PROGRESS
       });
     case 'SEARCH_DONE':
-      return Object.assign({}, state, {
+      return Immutable.merge(state, {
         status: searchStatus.DONE,
         count: action.payload.count,
         results: Immutable.from(_.keys(action.payload.results) // Retrieve keys
@@ -24,9 +24,9 @@ export default function Search(state = {status: searchStatus.DONE}, action) {
           }))
       });
     case 'SEARCH_FAIL':
-      return Object.assign({}, state, {
+      return Immutable.merge(state, {
         status: searchStatus.FAIL,
-        error: action.payload,
+        error: Immutable.from(action.payload),
         results: Immutable.from([])
       });
     default:

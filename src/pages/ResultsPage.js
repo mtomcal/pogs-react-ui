@@ -11,9 +11,9 @@ import _ from 'lodash';
 import qs from 'qs';
 import {static as Immutable} from 'seamless-immutable';
 import {Search} from '../actions';
+import ScrollView from "../components/ScrollView";
 
-export function trimResults(_data) {
-  const data = _.cloneDeep(_data);
+export function trimResults(data) {
   return data.map(function (row) {
     return Immutable.setIn(row, ['description'], _.truncate(row.description, {length: 140}));
   });
@@ -27,23 +27,28 @@ class ResultsPage extends Component {
   }
   render() {
     const {data, count, isLoading} = this.props;
+    const styles = {
+      sidebar: {
+        float: 'left',
+        backgroundColor: 'white',
+        marginTop: '-20px',
+        width: '33.333%'
+      }
+    };
 
     return (
       <Layout>
-        <Card>
           <div className="row">
-            <div className="col s12">
+            <div style={styles.sidebar}>
               {isLoading && <Loader/>}
               {!_.isEmpty(data) &&
-              <div>
-                <h3>{count} Results</h3>
-                <hr/>
-                <Table headers={['id', 'description']} data={trimResults(data)} />
-              </div>
+                <ScrollView scrollItems={data} />
               }
             </div>
+            <div className="col-sm-8">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi, architecto autem commodi cumque dicta doloremque ea eveniet exercitationem labore nihil odit possimus quas quo reiciendis soluta tenetur ut vel.
+            </div>
           </div>
-        </Card>
       </Layout>
     );
   }
@@ -54,9 +59,7 @@ ResultsPage.propTypes = {};
 function mapStateToProps(state) {
   let data;
   if (state.Search.results) {
-    data = state.Search.results.map(function (row, index) {
-      return Immutable.setIn(row, ['id'], <h4>{row.id}</h4>);
-    });
+    data = trimResults(state.Search.results);
   }
   return {
     data,
