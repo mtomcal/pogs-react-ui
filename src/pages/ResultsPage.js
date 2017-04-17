@@ -2,16 +2,15 @@ import React, {
   Component,
 } from 'react';
 // import PropTypes from 'prop-types';
-import Card from '../components/Card';
-import Table from '../components/Table';
 import Loader from '../components/Loader';
 import Layout from '../containers/Layout';
 import {connect} from 'react-redux';
 import _ from 'lodash';
 import qs from 'qs';
 import {static as Immutable} from 'seamless-immutable';
-import {Search} from '../actions';
+import {Search, Profile as ProfileReducer} from '../actions';
 import ScrollView from "../components/ScrollView";
+import Profile from '../components/Profile';
 
 export function trimResults(data) {
   return data.map(function (row) {
@@ -24,29 +23,20 @@ class ResultsPage extends Component {
     super(props);
     const values = qs.parse(props.location.search.replace('?', ''));
     props.searchAction(values);
+    props.loadProfile(5562);
   }
   render() {
-    const {data, count, isLoading} = this.props;
-    const styles = {
-      sidebar: {
-        float: 'left',
-        backgroundColor: 'white',
-        marginTop: '-20px',
-        width: '33.333%'
-      }
-    };
+    const {resultData, geneModels, id, isLoading} = this.props;
 
     return (
       <Layout>
           <div className="row">
-            <div style={styles.sidebar}>
+            <div className="sidebar">
               {isLoading && <Loader/>}
-              {!_.isEmpty(data) &&
-                <ScrollView scrollItems={data} />
-              }
+              {!isLoading && <ScrollView scrollItems={resultData} />}
             </div>
             <div className="col-sm-8">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi, architecto autem commodi cumque dicta doloremque ea eveniet exercitationem labore nihil odit possimus quas quo reiciendis soluta tenetur ut vel.
+              {!isLoading && <Profile geneModels={geneModels} id={id} /> }
             </div>
           </div>
       </Layout>
@@ -57,14 +47,17 @@ class ResultsPage extends Component {
 ResultsPage.propTypes = {};
 
 function mapStateToProps(state) {
-  let data;
+  let resultData;
   if (state.Search.results) {
-    data = trimResults(state.Search.results);
+    resultData = trimResults(state.Search.results);
   }
   return {
-    data,
-    count: state.Search.count,
-    isLoading: state.Search.status !== 'DONE'
+    resultData,
+    id: state.Profile.currentProfileId,
+    geneModels: state.Profile.results,
+    isLoading: (state.Search.status !== 'DONE' || state.Search.status !== 'DONE' || (
+      _.isEmpty(state.Search.results) || _.isEmpty(state.Profile.results)
+    ))
   };
 }
 
@@ -72,6 +65,9 @@ function mapDispatchToProps(dispatch) {
   return {
     searchAction(values) {
       dispatch(Search.searchQuery(values));
+    },
+    loadProfile(id) {
+      dispatch(ProfileReducer.profileQuery({profileType: 'pog', id}))
     }
   }
 }
