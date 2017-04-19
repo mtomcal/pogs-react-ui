@@ -23,20 +23,23 @@ class ResultsPage extends Component {
     super(props);
     const values = qs.parse(props.location.search.replace('?', ''));
     props.searchAction(values);
-    props.loadProfile(5562);
+    this.onMenuSelect = this.onMenuSelect.bind(this);
+  }
+  onMenuSelect(item) {
+    this.props.loadProfile(Number(item.id));
   }
   render() {
-    const {resultData, geneModels, id, isLoading} = this.props;
+    const {resultData, geneModels, id, isLoading, isLoadingProfile} = this.props;
 
     return (
       <Layout>
           <div className="row">
             <div className="sidebar">
               {isLoading && <Loader/>}
-              {!isLoading && <ScrollView scrollItems={resultData} />}
+              {!isLoading && <ScrollView scrollItems={resultData} onSelectItem={this.onMenuSelect}/>}
             </div>
             <div className="col-sm-8">
-              {!isLoading && <Profile geneModels={geneModels} id={id} /> }
+              {!isLoadingProfile && <Profile geneModels={geneModels} id={id} /> }
             </div>
           </div>
       </Layout>
@@ -55,9 +58,8 @@ function mapStateToProps(state) {
     resultData,
     id: state.Profile.currentProfileId,
     geneModels: state.Profile.results,
-    isLoading: (state.Search.status !== 'DONE' || state.Search.status !== 'DONE' || (
-      _.isEmpty(state.Search.results) || _.isEmpty(state.Profile.results)
-    ))
+    isLoading: state.Search.status !== 'DONE' || _.isEmpty(state.Search.results),
+    isLoadingProfile: state.Profile.status !== 'DONE' || _.isEmpty(state.Profile.results)
   };
 }
 

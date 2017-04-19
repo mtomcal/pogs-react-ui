@@ -14,8 +14,7 @@ class ScrollView extends Component {
     return (event) => {
       event.preventDefault();
       const {onSelectItem, scrollItems} = this.props;
-      const {selectedIndex} = this.state;
-      this.setState({selectedIndex: index}, () => onSelectItem(scrollItems[selectedIndex]));
+      this.setState({selectedIndex: index}, () => onSelectItem(scrollItems[index]));
     };
   }
   render() {
@@ -41,7 +40,8 @@ class ScrollView extends Component {
 }
 
 ScrollView.propTypes = {
-  scrollItems: PropTypes.array.isRequired
+  scrollItems: PropTypes.array.isRequired,
+  onSelectItem: PropTypes.func.isRequired
 };
 
 export default ScrollView;
