@@ -5,7 +5,18 @@ import ScrollCard from "./ScrollCard";
 class ScrollView extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      selectedIndex: 0
+    };
+    this.onSelectHandler = this.onSelectHandler.bind(this);
+  }
+  onSelectHandler(index) {
+    return (event) => {
+      event.preventDefault();
+      const {onSelectItem, scrollItems} = this.props;
+      const {selectedIndex} = this.state;
+      this.setState({selectedIndex: index}, () => onSelectItem(scrollItems[selectedIndex]));
+    };
   }
   render() {
     let styles = {
@@ -16,11 +27,13 @@ class ScrollView extends Component {
       paddingBottom: '20vh'
     };
     const {scrollItems} = this.props;
+    const {selectedIndex} = this.state;
 
     return (
-      <div style={styles}>
-        {scrollItems.map(function (item, index) {
-          return <ScrollCard data={item} key={index} />;
+      <div className="z-depth-2" style={styles}>
+        {scrollItems.map((item, index) => {
+          const isSelected = index === selectedIndex;
+          return <ScrollCard data={item} key={index} isSelected={isSelected} onSelectHandler={this.onSelectHandler(index)} />;
         })}
       </div>
     );

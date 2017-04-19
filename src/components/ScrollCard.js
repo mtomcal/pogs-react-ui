@@ -15,19 +15,24 @@ class ScrollCard extends Component {
       },
     };
 
-    const {data} = this.props;
+    const {data, isSelected, onSelectHandler} = this.props;
+    const isSelectedClass = (isSelected) ? `selected` : ``;
 
     return (
-      <div className="scroll-card" style={styles.card}>
-        <h3>{data.id}</h3>
-        <p>{data.description}</p>
-      </div>
+      <a href="#" className="scroll-card-link" onClick={onSelectHandler}>
+        <div className={`scroll-card ${isSelectedClass}`} style={styles.card}>
+          <h3>{data.id}</h3>
+          <p>{data.description}</p>
+        </div>
+      </a>
     );
   }
 }
 
 ScrollCard.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
+  isSelected: PropTypes.bool.isRequired,
+  onSelectHandler: PropTypes.func.isRequired
 };
 
 export default ScrollCard;

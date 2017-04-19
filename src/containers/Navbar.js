@@ -9,7 +9,7 @@ class Navbar extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="z-depth-1">
         <nav className="navbar navbar-default">
           <div className="container-fluid">
             <div className="row col-sm-12">
