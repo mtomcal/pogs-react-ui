@@ -6,13 +6,22 @@ import Table from './Table';
 
 export default class Profile extends Component {
   render() {
-    const { id, geneModels } = this.props;
+    const { id, geneModels, domains } = this.props;
     const headers = ['genemodel', 'desc'];
     return (
       <div className="profile">
-        <h3>Orthologous Group {id ? id : ''}</h3>
+        <h1>Orthologous Group {id ? id : ''}</h1>
         <hr />
-        <Table data={geneModels} headers={headers} />
+        <div>
+          <h2>Models</h2>
+          <hr />
+          <Table data={geneModels} headers={headers} />
+        </div>
+        <div>
+          <h2>Domain Architecture of POG Members</h2>
+          <hr />
+          <Table data={domains} unSafe headers={['id', 'domain']} />
+        </div>
       </div>
     );
   }
@@ -20,5 +29,5 @@ export default class Profile extends Component {
 
 Profile.propTypes = {
   id: PropTypes.number.isRequired,
-  geneModels: PropTypes.object.isRequired,
+  geneModels: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };

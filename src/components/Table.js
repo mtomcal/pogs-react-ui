@@ -2,11 +2,19 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 
-function TableRow({ headers, fields }) {
+function TableRow({ headers, fields, unSafe }) {
   return (
     <tr>
       {headers.map(function toField(header, index) {
         const value = fields[header];
+        if (unSafe) {
+          return (
+            <td
+              key={`field-${index}`}
+              dangerouslySetInnerHTML={{ __html: value }}
+            />
+          );
+        }
         return <td key={`field-${index}`}>{value}</td>;
       })}
     </tr>
@@ -31,7 +39,7 @@ TableHeader.propTypes = {};
 
 class Table extends Component {
   render() {
-    const { data, headers } = this.props;
+    const { data, headers, unSafe } = this.props;
 
     return (
       <table className="table table-striped">
@@ -39,7 +47,12 @@ class Table extends Component {
         <tbody>
           {data.map(function tableRowMap(row, index) {
             return (
-              <TableRow key={`row-${index}`} headers={headers} fields={row} />
+              <TableRow
+                key={`row-${index}`}
+                headers={headers}
+                unSafe={unSafe}
+                fields={row}
+              />
             );
           })}
         </tbody>
@@ -50,6 +63,11 @@ class Table extends Component {
 
 Table.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  unSafe: PropTypes.bool,
+};
+
+Table.defaultProps = {
+  unSafe: false,
 };
 
 export default Table;

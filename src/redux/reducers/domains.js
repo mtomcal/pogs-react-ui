@@ -2,21 +2,21 @@ import { static as Immutable } from 'seamless-immutable';
 import _ from 'lodash';
 import { status } from '../../config/default';
 
-export function Profile(
+export function Domains(
   state = Immutable.from({ status: status.EMPTY }),
   action,
 ) {
   switch (action.type) {
-  case 'PROFILE_IN_PROGRESS':
+  case 'DOMAIN_IN_PROGRESS':
     return Immutable.merge(state, {
       status: status.IN_PROGRESS,
     });
-  case 'PROFILE_DONE':
+  case 'DOMAIN_DONE':
     return Immutable.merge(state, {
       status: status.DONE,
-      ...action.payload,
+      result: action.payload,
     });
-  case 'PROFILE_FAIL':
+  case 'DOMAIN_FAIL':
     return Immutable.merge(state, {
       status: status.FAIL,
       error: Immutable.from(action.error),

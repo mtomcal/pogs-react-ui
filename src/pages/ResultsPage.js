@@ -5,9 +5,14 @@ import Loader from '../components/Loader';
 import Layout from '../containers/Layout';
 import _ from 'lodash';
 import qs from 'qs';
+import { domainQuery } from '../redux/actions/domains';
 import { profileQuery } from '../redux/actions/profile';
 import { searchQuery } from '../redux/actions/search';
 import { getAllPogs, getPogStatus } from '../redux/selectors/search';
+import {
+  getDomainsStatus,
+  getDomainCollection,
+} from '../redux/selectors/domains';
 import {
   getGenemodelEntities,
   getLocusStatus,
@@ -29,12 +34,20 @@ class ResultsPage extends Component {
       state => ({
         profileId: Number(item.id),
       }),
-      () =>
-        this.props.profileQuery({ id: Number(item.id), profileType: 'pog' }),
+      () => {
+        this.props.profileQuery({ id: Number(item.id), profileType: 'pog' });
+        this.props.domainQuery({ id: Number(item.id) });
+      },
     );
   };
   render() {
-    const { resultData, geneModels, isLoading, isLoadingProfile } = this.props;
+    const {
+      resultData,
+      domains,
+      geneModels,
+      isLoading,
+      isLoadingProfile,
+    } = this.props;
 
     return (
       <Layout>
@@ -50,7 +63,11 @@ class ResultsPage extends Component {
           </div>
           <div className="col-sm-8">
             {!isLoadingProfile && (
-              <Profile geneModels={geneModels} id={this.state.profileId} />
+              <Profile
+                domains={domains}
+                geneModels={geneModels}
+                id={this.state.profileId}
+              />
             )}
             {isLoadingProfile && <Loader />}
           </div>
@@ -64,7 +81,7 @@ class ResultsPage extends Component {
   const { arrayOf, shape, bool } = PropTypes;
   ResultsPage.propTypes = {
     resultData: arrayOf(shape({})),
-    geneModels: shape({}),
+    geneModels: arrayOf(shape({})),
     isLoading: bool.isRequired,
     isLoadingProfile: bool.isRequired,
   };
@@ -73,12 +90,17 @@ class ResultsPage extends Component {
 function mapStateToProps(state) {
   return {
     resultData: getAllPogs(state),
+    domains: getDomainCollection(state),
     geneModels: getGenemodelEntities(state),
     isLoading: getPogStatus(state) !== status.DONE,
-    isLoadingProfile: getLocusStatus(state) !== status.DONE,
+    isLoadingProfile:
+      getLocusStatus(state) !== status.DONE &&
+      getDomainsStatus(state) !== status.DONE,
   };
 }
 
-export default connect(mapStateToProps, { profileQuery, searchQuery })(
-  ResultsPage,
-);
+export default connect(mapStateToProps, {
+  profileQuery,
+  searchQuery,
+  domainQuery,
+})(ResultsPage);

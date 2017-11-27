@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { status } from '../../config/default';
 
 export function Search(
-  state = Immutable.from({ status: status.DONE }),
+  state = Immutable.from({ status: status.EMPTY }),
   action,
 ) {
   switch (action.type) {
@@ -20,7 +20,7 @@ export function Search(
     return Immutable.merge(state, {
       status: status.FAIL,
       error: Immutable.from(action.payload),
-      results: Immutable.from([]),
+      result: Immutable.from([]),
     });
   default:
     return state;
