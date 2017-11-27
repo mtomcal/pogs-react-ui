@@ -5,6 +5,7 @@
   "devDependencies": {
     "react-scripts": "0.9.5"
   },
+  "engines": { "node": ">=8.x" },
   "dependencies": {
     "axios": "^0.15.3",
     "bootstrap": "^3.3.7",
