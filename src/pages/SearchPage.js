@@ -8,15 +8,13 @@ import qs from 'qs';
 class SearchPage extends Component {
   constructor(props) {
     super(props);
-    this.onSearch = this.onSearch.bind(this);
     this.state = { shouldRedirect: false };
     this.searchValues = {};
   }
-  onSearch(values) {
-    console.log(values);
+  onSearch = values => {
     this.searchValues = qs.stringify(values);
     this.setState({ shouldRedirect: true });
-  }
+  };
   render() {
     if (this.state.shouldRedirect === true) {
       return (

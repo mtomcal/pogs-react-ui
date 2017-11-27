@@ -1,14 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 
-import _ from 'lodash';
-
-function TableRow({headers, fields}) {
+function TableRow({ headers, fields }) {
   return (
     <tr>
       {headers.map(function toField(header, index) {
         const value = fields[header];
-        return <td key={`field-${index}`}>{value}</td>
+        return <td key={`field-${index}`}>{value}</td>;
       })}
     </tr>
   );
@@ -16,14 +15,14 @@ function TableRow({headers, fields}) {
 
 TableRow.propTypes = {};
 
-function TableHeader({headers}) {
+function TableHeader({ headers }) {
   return (
     <thead>
-    <tr>
-      {headers.map(function header(headerField, index) {
-        return <th key={`header-${index}`}>{_.capitalize(headerField)}</th>
-      })}
-    </tr>
+      <tr>
+        {headers.map(function header(headerField, index) {
+          return <th key={`header-${index}`}>{_.capitalize(headerField)}</th>;
+        })}
+      </tr>
     </thead>
   );
 }
@@ -32,15 +31,17 @@ TableHeader.propTypes = {};
 
 class Table extends Component {
   render() {
-    const {data, headers} = this.props;
+    const { data, headers } = this.props;
 
     return (
       <table className="table table-striped">
         <TableHeader headers={headers} />
         <tbody>
-        {data.map(function tableRowMap(row, index) {
-          return <TableRow key={`row-${index}`} headers={headers} fields={row} />
-        })}
+          {data.map(function tableRowMap(row, index) {
+            return (
+              <TableRow key={`row-${index}`} headers={headers} fields={row} />
+            );
+          })}
         </tbody>
       </table>
     );
@@ -48,19 +49,7 @@ class Table extends Component {
 }
 
 Table.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object).isRequired
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Table;
-
-
-
-
-
-
-
-
-
-
-
-

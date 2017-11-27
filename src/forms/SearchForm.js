@@ -17,7 +17,8 @@ function SearchForm({ onSubmit }) {
           gene: Yup.string(),
           keyword: Yup.string(),
           pog: Yup.string(),
-        })}
+        })
+      }
       onSubmit={onSubmit}
       render={props => (
         <form onSubmit={props.handleSubmit}>

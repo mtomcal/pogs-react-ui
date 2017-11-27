@@ -1,10 +1,16 @@
-import thunkMiddleware from 'redux-thunk'
-import { createStore, compose, applyMiddleware } from 'redux'
-import rootReducer from './reducers'
+import thunkMiddleware from 'redux-thunk';
+import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
+import { Profile } from './redux/reducers/profile';
+import { Search } from './redux/reducers/search';
 
 const finalCreateStore = compose(
   applyMiddleware(thunkMiddleware),
-  window.devToolsExtension ? window.devToolsExtension() : f => f
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 )(createStore);
 
-export default finalCreateStore(rootReducer);
+export default finalCreateStore(
+  combineReducers({
+    Profile,
+    Search,
+  }),
+);
