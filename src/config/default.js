@@ -1,4 +1,4 @@
-export const BASE_URL = `http://pogs.uoregon.edu/dev/api`;
+export const BASE_URL = `/api`;
 
 export const SEARCH_ENDPOINT = `${BASE_URL}/search.jsonp`;
 export const POG_ENDPOINT = `${BASE_URL}/pog.jsonp`;

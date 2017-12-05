@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.9.5"
+    "react-scripts": "^1.0.17"
   },
-  "engines": { "node": ">=8.x" },
+  "engines": {
+    "node": ">=8.x"
+  },
+  "proxy": "http://cas-pogs.uoregon.edu/dev",
   "dependencies": {
     "axios": "^0.15.3",
     "bootstrap": "^3.3.7",
