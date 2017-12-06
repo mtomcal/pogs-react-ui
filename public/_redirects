@@ -1,2 +1,2 @@
-/api/* http://cas-pogs.uoregon.edu/dev/api
+/api/*   http://cas-pogs.uoregon.edu/dev/api/:splat   200
 /*    /index.html   200
