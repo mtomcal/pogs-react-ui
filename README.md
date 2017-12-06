@@ -25,4 +25,4 @@ project to get more information about the tooling.
 
 ## Live Deploy
 
-http://inspiring-lovelace-816ebb.netlify.com/
+https://inspiring-lovelace-816ebb.netlify.com/
