@@ -4,14 +4,10 @@ import { Formik, Field } from 'formik';
 import TextField from '../components/TextField';
 import Yup from 'yup';
 
-function SearchForm({ onSubmit }) {
+function SearchForm({ onSubmit, search }) {
   return (
     <Formik
-      initialValues={{
-        gene: '',
-        keyword: '',
-        pog: '',
-      }}
+      initialValues={search}
       validationSchema={() =>
         Yup.object().shape({
           gene: Yup.string(),
@@ -64,6 +60,19 @@ function SearchForm({ onSubmit }) {
 
 SearchForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  search: PropTypes.shape({
+    gene: PropTypes.string,
+    keyword: PropTypes.string,
+    pog: PropTypes.string,
+  }),
+};
+
+SearchForm.defaultProps = {
+  search: {
+    gene: '',
+    keyword: '',
+    pog: '',
+  },
 };
 
 export default SearchForm;

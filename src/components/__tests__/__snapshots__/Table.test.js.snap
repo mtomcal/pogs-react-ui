@@ -1,6 +1,9 @@
-exports[`test renders with two rows and a header 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with two rows and a header 1`] = `
 <table
-  className="table table-striped">
+  className="table table-striped"
+>
   <thead>
     <tr>
       <th>

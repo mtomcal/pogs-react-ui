@@ -1,12 +1,18 @@
-exports[`test renders with two elements 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with two elements 1`] = `
 <div
-  className="panel panel-default">
+  className="panel panel-default"
+>
   <div
-    className="panel-body">
+    className="panel-body"
+  >
     <div
-      className="col-sm-12">
+      className="col-sm-12"
+    >
       <div
-        className="col-sm-12">
+        className="col-sm-12"
+      >
         <h1>
           Stuff
         </h1>

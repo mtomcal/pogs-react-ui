@@ -1,18 +1,19 @@
 import thunkMiddleware from 'redux-thunk';
-import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
+import { compose, applyMiddleware, combineReducers, createStore } from 'redux';
 import { Profile } from './redux/reducers/profile';
 import { Search } from './redux/reducers/search';
 import { Domains } from './redux/reducers/domains';
 
-const finalCreateStore = compose(
-  applyMiddleware(thunkMiddleware),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-)(createStore);
-
-export default finalCreateStore(
+export default createStore(
   combineReducers({
     Domains,
     Profile,
     Search,
   }),
+  compose(
+    applyMiddleware(thunkMiddleware),
+    (window.__REDUX_DEVTOOLS_EXTENSION__ &&
+      window.__REDUX_DEVTOOLS_EXTENSION__()) ||
+      (data => data),
+  ),
 );

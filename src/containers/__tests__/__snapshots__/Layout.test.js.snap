@@ -1,21 +1,29 @@
-exports[`test renders with one element 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with one element 1`] = `
 <div>
   <div
-    className="z-depth-1">
+    className="z-depth-1"
+  >
     <nav
-      className="navbar navbar-default">
+      className="navbar navbar-default"
+    >
       <div
-        className="container-fluid">
+        className="container-fluid"
+      >
         <div
-          className="row col-sm-12">
+          className="row col-sm-12"
+        >
           <div
-            className="navbar-header" />
+            className="navbar-header"
+          />
         </div>
       </div>
     </nav>
   </div>
   <div
-    className="container-fluid">
+    className="container-fluid"
+  >
     <h1>
       Stuff
     </h1>

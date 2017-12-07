@@ -1,33 +1,36 @@
 import React from 'react';
+import Promise from 'bluebird';
 import SearchForm from '../SearchForm';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
-import state from '../../State';
+
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 describe('SearchForm', () => {
-  test('renders gene field', () => {
-    const component = mount(
-      <Provider store={state}>
-        <SearchForm onSubmit={jest.fn} />
-      </Provider>,
-    );
-    expect(component.find('input[name="gene"]').exists()).toEqual(true);
+  let props;
+  beforeEach(() => {
+    props = {
+      onSubmit: jest.fn(),
+      search: {
+        gene: 'stuff',
+        keyword: '',
+        pog: '',
+      },
+    };
   });
-  test('renders keyword field', () => {
-    const component = mount(
-      <Provider store={state}>
-        <SearchForm onSubmit={jest.fn} />
-      </Provider>,
-    );
-    expect(component.find('input[name="keyword"]').exists()).toEqual(true);
-  });
-  test('renders pog field', () => {
-    const component = mount(
-      <Provider store={state}>
-        <SearchForm onSubmit={jest.fn} />
-      </Provider>,
-    );
-    expect(component.find('input[name="pog"]').exists()).toEqual(true);
+  describe('render states', () => {
+    it('should render without crashing (sanity)', () => {
+      const wrapper = mount(<SearchForm {...props} />);
+      wrapper.mount();
+      expect(wrapper.find('form')).toHaveLength(1);
+    });
+    it('should render gene text in form from props', () => {
+      const wrapper = mount(<SearchForm {...props} />);
+      wrapper.mount();
+      // console.log(wrapper.debug());
+      expect(
+        wrapper.find('Field').find('input[name="gene"][value="stuff"]'),
+      ).toHaveLength(1);
+    });
+    describe('form modification', () => {});
   });
 });
