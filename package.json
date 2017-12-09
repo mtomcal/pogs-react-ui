@@ -13,9 +13,16 @@
   "proxy": "http://cas-pogs.uoregon.edu/dev",
   "dependencies": {
     "axios": "^0.15.3",
+    "babel-eslint": "^7.2.3",
     "bootstrap": "^3.3.7",
     "bootstrap-material-design": "^0.5.10",
     "enzyme": "^2.8.0",
+    "eslint": "^4.13.0",
+    "eslint-config-react-app": "^2.0.1",
+    "eslint-plugin-flowtype": "^2.39.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.5.1",
     "formik": "^0.10.4",
     "normalizr": "^3.2.4",
     "qs": "^6.4.0",
@@ -38,7 +45,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI=true npm test -- --bail && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
