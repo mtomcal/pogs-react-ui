@@ -12,7 +12,6 @@ class SearchPage extends Component {
     this.searchValues = {};
   }
   onSearch = values => {
-    console.log(values);
     this.searchValues = qs.stringify(values);
     this.setState({ shouldRedirect: true });
   };

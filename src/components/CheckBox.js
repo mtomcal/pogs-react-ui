@@ -5,7 +5,7 @@ export class CheckBox extends Component {
     const {
       label,
       field, // { name, value, onChange, onBlur }
-      // form: { touched, errors },
+      form: { touched, errors },
     } = this.props;
     return (
       <div className="checkbox">
@@ -22,6 +22,10 @@ export class CheckBox extends Component {
           </span>
           {label}
         </label>
+        {errors[field.name] &&
+          touched[field.name] && (
+            <span className="text-danger">{errors[field.name]}</span>
+          )}
       </div>
     );
   }
