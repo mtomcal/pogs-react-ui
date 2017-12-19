@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Field } from 'formik';
 import TextField from '../components/TextField';
+import CheckBox from '../components/CheckBox';
 import Yup from 'yup';
 
 function SearchForm({ onSubmit, search }) {
@@ -13,6 +14,7 @@ function SearchForm({ onSubmit, search }) {
           gene: Yup.string(),
           keyword: Yup.string(),
           pog: Yup.string(),
+          option: Yup.bool(),
         })
       }
       onSubmit={onSubmit}
@@ -34,6 +36,11 @@ function SearchForm({ onSubmit, search }) {
                 name="keyword"
                 component={TextField}
               />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-sm-12">
+              <Field label="Option" name="option" component={CheckBox} />
             </div>
           </div>
           <div className="row">
@@ -64,6 +71,7 @@ SearchForm.propTypes = {
     gene: PropTypes.string,
     keyword: PropTypes.string,
     pog: PropTypes.string,
+    option: PropTypes.bool,
   }),
 };
 
@@ -72,6 +80,7 @@ SearchForm.defaultProps = {
     gene: '',
     keyword: '',
     pog: '',
+    option: true,
   },
 };
 

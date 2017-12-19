@@ -20,7 +20,7 @@ class ScrollCard extends Component {
     const isSelectedClass = isSelected ? `selected` : ``;
 
     return (
-      <a href="#" className="scroll-card-link" onClick={onSelectHandler}>
+      <a href="#link" className="scroll-card-link" onClick={onSelectHandler}>
         <div className={`scroll-card ${isSelectedClass}`} style={styles.card}>
           <h3>{data.id}</h3>
           <p>{_.truncate(data.description, { length: 140 })}</p>

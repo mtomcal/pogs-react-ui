@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Loader from '../components/Loader';
 import Layout from '../containers/Layout';
-import _ from 'lodash';
+// import _ from 'lodash';
 import qs from 'qs';
 import { domainQuery } from '../redux/actions/domains';
 import { profileQuery } from '../redux/actions/profile';

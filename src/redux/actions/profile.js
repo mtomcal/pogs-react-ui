@@ -1,5 +1,5 @@
 import { static as Immutable } from 'seamless-immutable';
-import _ from 'lodash';
+// import _ from 'lodash';
 import superagent from 'superagent';
 import jsonp from 'superagent-jsonp';
 import * as Config from '../../config/default';
