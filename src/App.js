@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import SearchPage from './pages/SearchPage';
-import ResultsPage from './pages/ResultsPage';
+import React, { Component } from 'react';
+import SearchPage from './modules/Search/SearchPage';
+import ResultsPage from './modules/Results/ResultsPage';
 
 import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';

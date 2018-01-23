@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Loader from '../components/Loader';
-import Layout from '../containers/Layout';
+import Loader from '../Shared/Loader';
+import Layout from '../Shared/Layout';
 // import _ from 'lodash';
 import qs from 'qs';
-import { domainQuery } from '../redux/actions/domains';
-import { profileQuery } from '../redux/actions/profile';
-import { searchQuery } from '../redux/actions/search';
-import { getAllPogs, getPogStatus } from '../redux/selectors/search';
+import { domainQuery } from '../../redux/actions/domains';
+import { profileQuery } from '../../redux/actions/profile';
+import { searchQuery } from '../../redux/actions/search';
+import { getAllPogs, getPogStatus } from '../../redux/selectors/search';
 import {
   getDomainsStatus,
   getDomainCollection,
-} from '../redux/selectors/domains';
+} from '../../redux/selectors/domains';
 import {
   getGenemodelEntities,
   getLocusStatus,
-} from '../redux/selectors/profile';
-import { status } from '../config/default';
-import ScrollView from '../components/ScrollView';
-import Profile from '../components/Profile';
+} from '../../redux/selectors/profile';
+import { status } from '../../config/default';
+import ScrollView from '../Shared/ScrollView';
+import Profile from '../Shared/Profile';
+
 class ResultsPage extends Component {
   constructor(props) {
     super(props);

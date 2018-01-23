@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Field } from 'formik';
-import TextField from '../components/TextField';
-import CheckBox from '../components/CheckBox';
+import TextField from '../Shared/TextField';
+import CheckBox from '../Shared/CheckBox';
 import Yup from 'yup';
 
 function SearchForm({ onSubmit, search }) {

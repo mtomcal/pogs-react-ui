@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Card from '../components/Card';
-import SearchForm from '../forms/SearchForm';
-import Layout from '../containers/Layout';
+import Card from '../Shared/Card';
+import SearchForm from './SearchForm';
+import Layout from '../Shared/Layout';
 import { Redirect } from 'react-router';
 import qs from 'qs';
 

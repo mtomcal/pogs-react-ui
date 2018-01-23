@@ -1,28 +1,23 @@
-import { static as Immutable } from 'seamless-immutable';
-// import _ from 'lodash';
+import produce from 'immer';
+import _ from 'lodash';
 import { status } from '../../config/default';
 
-export function Profile(
-  state = Immutable.from({ status: status.EMPTY }),
-  action,
-) {
-  switch (action.type) {
-  case 'PROFILE_IN_PROGRESS':
-    return Immutable.merge(state, {
-      status: status.IN_PROGRESS,
-    });
-  case 'PROFILE_DONE':
-    return Immutable.merge(state, {
-      status: status.DONE,
-      ...action.payload,
-    });
-  case 'PROFILE_FAIL':
-    return Immutable.merge(state, {
-      status: status.FAIL,
-      error: Immutable.from(action.error),
-      result: Immutable.from({}),
-    });
-  default:
-    return state;
-  }
-}
+export const Profile = (state = { status: status.EMPTY }, action) =>
+  produce(state, nextState => {
+    switch (action.type) {
+    case 'PROFILE_IN_PROGRESS':
+      nextState.status = status.IN_PROGRESS;
+      break;
+    case 'PROFILE_DONE':
+      nextState.status = status.DONE;
+      _.merge(nextState, action.payload);
+      break;
+    case 'PROFILE_FAIL':
+      nextState.status = status.FAIL;
+      nextState.error = action.error;
+      nextState.result = {};
+      break;
+    default:
+      break;
+    }
+  });

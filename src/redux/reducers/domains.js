@@ -1,28 +1,22 @@
-import { static as Immutable } from 'seamless-immutable';
+import produce from 'immer';
 // import _ from 'lodash';
 import { status } from '../../config/default';
 
-export function Domains(
-  state = Immutable.from({ status: status.EMPTY }),
-  action,
-) {
-  switch (action.type) {
-  case 'DOMAIN_IN_PROGRESS':
-    return Immutable.merge(state, {
-      status: status.IN_PROGRESS,
-    });
-  case 'DOMAIN_DONE':
-    return Immutable.merge(state, {
-      status: status.DONE,
-      result: action.payload,
-    });
-  case 'DOMAIN_FAIL':
-    return Immutable.merge(state, {
-      status: status.FAIL,
-      error: Immutable.from(action.error),
-      result: Immutable.from({}),
-    });
-  default:
-    return state;
-  }
-}
+export const Domains = (state = { status: status.EMPTY }, action) =>
+  produce(state, nextState => {
+    switch (action.type) {
+    case 'DOMAIN_IN_PROGRESS':
+      nextState.status = status.IN_PROGRESS;
+      break;
+    case 'DOMAIN_DONE':
+      nextState.status = status.DONE;
+      nextState.result = action.payload;
+      break;
+    case 'DOMAIN_FAIL':
+      nextState.status = status.FAIL;
+      nextState.error = action.error;
+      nextState.result = {};
+      break;
+    default:
+    }
+  });

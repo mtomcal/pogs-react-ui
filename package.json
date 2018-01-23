@@ -24,6 +24,7 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.5.1",
     "formik": "^0.10.4",
+    "immer": "^0.8.4",
     "normalizr": "^3.2.4",
     "qs": "^6.4.0",
     "react": "15.5.0",
